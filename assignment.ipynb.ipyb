@@ -1,0 +1,671 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#                                     ASSIGNMENT"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 1. Explain how will you build the dataset. If we tell you the requirements.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Before to going build the dataset,we need sample data based on our requirements.Sample data we gethering from a\n",
+    "respective organizations or own  individual data preparation but in  this case its time consuming proccess so this was not prepered.So after  gethered dataset we to build dataset as per our reqirements.In dataset building we have two ap  respective organizations or own  individual data preparation but in  this case its time consuming proccess so this was not prepered.So after  gethered dataset we to build dataset as per our reqirements.In dataset building we have two approaches,any one should we follow based on our dataset avaialbility.dataset available  in databases like cloud formate or SQL ,We build in  using SQl serves.In sql we have certain commnads for dataset bulid properly. if data set available in CSV formate ,We have python libraies like numpy and pandads for building.Mainly CSV formates as practice purpose only.it will available in Kaggle,UCI Machine Learning Repository,Google Dataset Search ,Reddit etc.After gathered dataset we covert total data set into table formatea and set labels(names) of columns, rows .After datet into table formate we should understand data.there are few steps to understand dataset.\n",
+    "1.Remove null vaues.\n",
+    "2.Notice missing values.\n",
+    "3.Check each colunm in the dataset is it categorical or numerical data ,if its categorical data weneed to convert data into numerical by using label encoding and one-hot encoding methods.\n",
+    "4.Reduce the dataset size.\n",
+    "5.Preprocess data.\n",
+    "6.Apply exploratory data analysis for deep understanding data clearly.\n",
+    "7.Rescale the data of colunms if we need.\n",
+    "8.mode/median/average value replacement.\n",
+    "9.Deleting the whole record.\n",
+    "10.Discretize data.\n",
+    "11.Overall dataset can split into train(80 %) and test data(20%)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 2. How can you turn your NLP chatbots or products into Cognitive (Something which can sense the feelings) Products. Describe the process in detail. Take one Product like chatbots/Phone-bot(bot over a call)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "There are broadly two variants of chatbots: Rule-Based and Self-learning.\n",
+    "1.In a Rule-based approach, a bot answers questions based on some rules on which it is trained on. The rules defined can be very simple to very complex. The bots can handle simple queries but fail to manage complex ones.\n",
+    "2.Self-learning bots are the ones that use some Machine Learning-based approaches and are definitely more efficient than rule-based bots.\n",
+    "Pre-requisites:\n",
+    "Hands-On knowledge of scikit library and NLTK is assumed. However, if you are new to NLP, you can still read the article and then refer back to resources.\n",
+    "1.NLP:\n",
+    "The field of study that focuses on the interactions between human language and computers is called Natural Language Processing,NLP is a way for computers to analyze, understand, and derive meaning from human language in a smart and useful way. By utilizing NLP, developers can organize and structure knowledge to perform tasks such as automatic summarization, translation, named entity recognition, relationship extraction, sentiment analysis, speech recognition, and topic segmentation.\n",
+    "2.NLTK: A Brief Intro:\n",
+    "NLTK(Natural Language Toolkit) is a leading platform for building Python programs to work with human language data. It provides easy-to-use interfaces to over 50 corpora and lexical resources such as WordNet, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning, wrappers for industrial-strength NLP libraries.\n",
+    "\n",
+    "Downloading and installing NLTK:\n",
+    "Install NLTK: run pip install nltk\n",
+    "Test installation: run python then type import nltk\n",
+    "\n",
+    "Installing NLTK Packages:\n",
+    "import NLTK and run nltk.download().This will open the NLTK downloader from where you can choose the corpora and models to download. You can also download all packages at once.\n",
+    "\n",
+    "Tokenization: Tokenization is just the term used to describe the process of converting the normal text strings into a list of tokens i.e words that we actually want. Sentence tokenizer can be used to find the list of sentences and Word tokenizer can be used to find the list of words in strings.\n",
+    "The NLTK data package includes a pre-trained Punkt tokenizer for English.\n",
+    "Removing Noise i.e everything that isn’t in a standard number or letter.\n",
+    "Removing Stop words. Sometimes, some extremely common words which would appear to be of little value in helping select documents matching a user need are excluded from the vocabulary entirely. These words are called stop words\n",
+    "\n",
+    "Stemming: Stemming is the process of reducing inflected (or sometimes derived) words to their stem, base or root form — generally a written word form. Example if we were to stem the following words: “Stems”, “Stemming”, “Stemmed”, “and Stemtization”, the result would be a single word “stem”.\n",
+    "\n",
+    "Lemmatization: A slight variant of stemming is lemmatization. The major difference between these is, that, stemming can often create non-existent words, whereas lemmas are actual words. So, your root stem, meaning the word you end up with, is not something you can just look up in a dictionary, but you can look up a lemma. Examples of Lemmatization are that “run” is a base form for words like “running” or “ran” or that the word “better” and “good” are in the same lemma so they are considered the same.\n",
+    "\n",
+    "\n",
+    "Bag of Words:\n",
+    "After the initial preprocessing phase, we need to transform the text into a meaningful vector (or array) of numbers. The bag-of-words is a representation of text that describes the occurrence of words within a document. It involves two things:\n",
+    "A vocabulary of known words.\n",
+    "The intuition behind the Bag of Words is that documents are similar if they have similar content. Also, we can learn something about the meaning of the document from its content alone.\n",
+    "\n",
+    "\n",
+    "TF-IDF Approach:\n",
+    "A problem with the Bag of Words approach is that highly frequent words start to dominate in the document (e.g. larger score), but may not contain as much “informational content”. Also, it will give more weight to longer documents than shorter documents.\n",
+    "One approach is to rescale the frequency of words by how often they appear in all documents so that the scores for frequent words like “the” that are also frequent across all documents are penalized. This approach to scoring is called Term Frequency-Inverse Document Frequency, or TF-IDF for short, where:\n",
+    "\n",
+    "Term Frequency: is a scoring of the frequency of the word in the current document.\n",
+    "Inverse Document Frequency: is a scoring of how rare the word is across documents.\n",
+    "\n",
+    "Cosine Similarity:\n",
+    "TF-IDF is a transformation applied to texts to get two real-valued vectors in vector space. We can then obtain the Cosine similarity of any pair of vectors by taking their dot product and dividing that by the product of their norms. That yields the cosine of the angle between the vectors. Cosine similarity is a measure of similarity between two non-zero vectors. Using this formula we can find out the similarity between any two documents d1 and d2.\n",
+    "\n",
+    "Pre-processing the raw text:\n",
+    "We shall now define a function called LemTokens which will take as input the tokens and return normalized tokens.\n",
+    "\n",
+    "Keyword matching:\n",
+    "Next, we shall define a function for a greeting by the bot i.e if a user’s input is a greeting, the bot shall return a greeting response.ELIZA uses a simple keyword matching for greetings. We will utilize the same concept here.\n",
+    "\n",
+    "\n",
+    "Generating Response:\n",
+    "To generate a response from our bot for input questions, the concept of document similarity will be used. So we begin by importing the necessary modules.\n",
+    "From scikit learn library, import the TFidf vectorizer to convert a collection of raw documents to a matrix of TF-IDF features.\n",
+    "\n",
+    "\n",
+    "Finally, we will feed the lines that we want our bot to say while starting and ending a conversation depending upon the user’s input.\n",
+    "So that’s pretty much it. We have coded our first chatbot in NLTK. Now, let us see how it interacts with humans\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 3. Build a sentiment analysis notebook."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import matplotlib.pyplot as plt\n",
+    "%matplotlib inline\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "from sklearn.preprocessing import LabelEncoder\n",
+    "from sklearn.metrics import confusion_matrix, classification_report, accuracy_score\n",
+    "from sklearn.manifold import TSNE\n",
+    "from sklearn.feature_extraction.text import TfidfVectorizer\n",
+    "from keras.preprocessing.text import Tokenizer\n",
+    "from keras.preprocessing.sequence import pad_sequences\n",
+    "from keras.models import Sequential\n",
+    "from keras.layers import Activation, Dense, Dropout, Embedding, Flatten, Conv1D, MaxPooling1D, LSTM\n",
+    "from keras import utils\n",
+    "from keras.callbacks import ReduceLROnPlateau, EarlyStopping\n",
+    "import nltk\n",
+    "from nltk.corpus import stopwords\n",
+    "from  nltk.stem import SnowballStemmer\n",
+    "import gensim\n",
+    "import re\n",
+    "import numpy as np\n",
+    "import os\n",
+    "from collections import Counter\n",
+    "import logging\n",
+    "import pickle\n",
+    "import itertools\n",
+    "logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)\n",
+    "nltk.download('stopwords')\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# DATASET\n",
+    "DATASET_COLUMNS = [\"target\", \"ids\", \"date\", \"flag\", \"user\", \"text\"]\n",
+    "DATASET_ENCODING = \"ISO-8859-1\"\n",
+    "TRAIN_SIZE = 0.8\n",
+    "\n",
+    "# TEXT CLENAING\n",
+    "TEXT_CLEANING_RE = \"@\\S+|https?:\\S+|http?:\\S|[^A-Za-z0-9]+\"\n",
+    "\n",
+    "# WORD2VEC \n",
+    "W2V_SIZE = 300\n",
+    "W2V_WINDOW = 7\n",
+    "W2V_EPOCH = 32\n",
+    "W2V_MIN_COUNT = 10\n",
+    "\n",
+    "# KERAS\n",
+    "SEQUENCE_LENGTH = 300\n",
+    "EPOCHS = 8\n",
+    "BATCH_SIZE = 1024\n",
+    "\n",
+    "# SENTIMENT\n",
+    "POSITIVE = \"POSITIVE\"\n",
+    "NEGATIVE = \"NEGATIVE\"\n",
+    "NEUTRAL = \"NEUTRAL\"\n",
+    "SENTIMENT_THRESHOLDS = (0.4, 0.7)\n",
+    "\n",
+    "# EXPORT\n",
+    "KERAS_MODEL = \"model.h5\"\n",
+    "WORD2VEC_MODEL = \"model.w2v\"\n",
+    "TOKENIZER_MODEL = \"tokenizer.pkl\"\n",
+    "ENCODER_MODEL = \"encoder.pkl\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = pd.read_csv(\"training.1600000.processed.noemoticon.csv\", encoding =DATASET_ENCODING , names=DATASET_COLUMNS)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"Dataset size:\", len(df))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df.head(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "decode_map = {0: \"NEGATIVE\", 2: \"NEUTRAL\", 4: \"POSITIVE\"}\n",
+    "def decode_sentiment(label):\n",
+    "    return decode_map[int(label)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%time\n",
+    "df.target = df.target.apply(lambda x: decode_sentiment(x))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "target_cnt = Counter(df.target)\n",
+    "\n",
+    "plt.figure(figsize=(16,8))\n",
+    "plt.bar(target_cnt.keys(), target_cnt.values())\n",
+    "plt.title(\"Dataset labels distribuition\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "stop_words = stopwords.words(\"english\")\n",
+    "stemmer = SnowballStemmer(\"english\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def preprocess(text, stem=False):\n",
+    "    # Remove link,user and special characters\n",
+    "    text = re.sub(TEXT_CLEANING_RE, ' ', str(text).lower()).strip()\n",
+    "    tokens = []\n",
+    "    for token in text.split():\n",
+    "        if token not in stop_words:\n",
+    "            if stem:\n",
+    "                tokens.append(stemmer.stem(token))\n",
+    "            else:\n",
+    "                tokens.append(token)\n",
+    "    return \" \".join(tokens)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%time\n",
+    "df.text = df.text.apply(lambda x: preprocess(x))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df_train, df_test = train_test_split(df, test_size=1-TRAIN_SIZE, random_state=42)\n",
+    "print(\"TRAIN size:\", len(df_train))\n",
+    "print(\"TEST size:\", len(df_test))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%time\n",
+    "documents = [_text.split() for _text in df_train.text] "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "w2v_model = gensim.models.word2vec.Word2Vec(size=W2V_SIZE, \n",
+    "                                            window=W2V_WINDOW, \n",
+    "                                            min_count=W2V_MIN_COUNT, \n",
+    "                                            workers=8)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "w2v_model.build_vocab(documents)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "words = w2v_model.wv.vocab.keys()\n",
+    "vocab_size = len(words)\n",
+    "print(\"Vocab size\", vocab_size)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%time\n",
+    "w2v_model.train(documents, total_examples=len(documents), epochs=W2V_EPOCH)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "w2v_model.most_similar(\"love\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%time\n",
+    "tokenizer = Tokenizer()\n",
+    "tokenizer.fit_on_texts(df_train.text)\n",
+    "\n",
+    "vocab_size = len(tokenizer.word_index) + 1\n",
+    "print(\"Total words\", vocab_size)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%time\n",
+    "x_train = pad_sequences(tokenizer.texts_to_sequences(df_train.text), maxlen=SEQUENCE_LENGTH)\n",
+    "x_test = pad_sequences(tokenizer.texts_to_sequences(df_test.text), maxlen=SEQUENCE_LENGTH)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "labels = df_train.target.unique().tolist()\n",
+    "labels.append(NEUTRAL)\n",
+    "labels"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "encoder = LabelEncoder()\n",
+    "encoder.fit(df_train.target.tolist())\n",
+    "\n",
+    "y_train = encoder.transform(df_train.target.tolist())\n",
+    "y_test = encoder.transform(df_test.target.tolist())\n",
+    "\n",
+    "y_train = y_train.reshape(-1,1)\n",
+    "y_test = y_test.reshape(-1,1)\n",
+    "\n",
+    "print(\"y_train\",y_train.shape)\n",
+    "print(\"y_test\",y_test.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(\"x_train\", x_train.shape)\n",
+    "print(\"y_train\", y_train.shape)\n",
+    "print()\n",
+    "print(\"x_test\", x_test.shape)\n",
+    "print(\"y_test\", y_test.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "y_train[:10]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "embedding_matrix = np.zeros((vocab_size, W2V_SIZE))\n",
+    "for word, i in tokenizer.word_index.items():\n",
+    "    if word in w2v_model.wv:\n",
+    "        embedding_matrix[i] = w2v_model.wv[word]\n",
+    "print(embedding_matrix.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "embedding_layer = Embedding(vocab_size, W2V_SIZE, weights=[embedding_matrix], input_length=SEQUENCE_LENGTH, trainable=False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "model = Sequential()\n",
+    "model.add(embedding_layer)\n",
+    "model.add(Dropout(0.5))\n",
+    "model.add(LSTM(100, dropout=0.2, recurrent_dropout=0.2))\n",
+    "model.add(Dense(1, activation='sigmoid'))\n",
+    "\n",
+    "model.summary()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "model.compile(loss='binary_crossentropy',\n",
+    "              optimizer=\"adam\",\n",
+    "              metrics=['accuracy'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "callbacks = [ ReduceLROnPlateau(monitor='val_loss', patience=5, cooldown=0),\n",
+    "              EarlyStopping(monitor='val_acc', min_delta=1e-4, patience=5)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%time\n",
+    "history = model.fit(x_train, y_train,\n",
+    "                    batch_size=BATCH_SIZE,\n",
+    "                    epochs=EPOCHS,\n",
+    "                    validation_split=0.1,\n",
+    "                    verbose=1,\n",
+    "                    callbacks=callbacks)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%time\n",
+    "score = model.evaluate(x_test, y_test, batch_size=BATCH_SIZE)\n",
+    "print()\n",
+    "print(\"ACCURACY:\",score[1])\n",
+    "print(\"LOSS:\",score[0])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "acc = history.history['acc']\n",
+    "val_acc = history.history['val_acc']\n",
+    "loss = history.history['loss']\n",
+    "val_loss = history.history['val_loss']\n",
+    " \n",
+    "epochs = range(len(acc))\n",
+    " \n",
+    "plt.plot(epochs, acc, 'b', label='Training acc')\n",
+    "plt.plot(epochs, val_acc, 'r', label='Validation acc')\n",
+    "plt.title('Training and validation accuracy')\n",
+    "plt.legend()\n",
+    " \n",
+    "plt.figure()\n",
+    " \n",
+    "plt.plot(epochs, loss, 'b', label='Training loss')\n",
+    "plt.plot(epochs, val_loss, 'r', label='Validation loss')\n",
+    "plt.title('Training and validation loss')\n",
+    "plt.legend()\n",
+    " \n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def decode_sentiment(score, include_neutral=True):\n",
+    "    if include_neutral:        \n",
+    "        label = NEUTRAL\n",
+    "        if score <= SENTIMENT_THRESHOLDS[0]:\n",
+    "            label = NEGATIVE\n",
+    "        elif score >= SENTIMENT_THRESHOLDS[1]:\n",
+    "            label = POSITIVE\n",
+    "\n",
+    "        return label\n",
+    "    else:\n",
+    "        return NEGATIVE if score < 0.5 else POSITIVE"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def predict(text, include_neutral=True):\n",
+    "    start_at = time.time()\n",
+    "    # Tokenize text\n",
+    "    x_test = pad_sequences(tokenizer.texts_to_sequences([text]), maxlen=SEQUENCE_LENGTH)\n",
+    "    # Predict\n",
+    "    score = model.predict([x_test])[0]\n",
+    "    # Decode sentiment\n",
+    "    label = decode_sentiment(score, include_neutral=include_neutral)\n",
+    "\n",
+    "    return {\"label\": label, \"score\": float(score),\n",
+    "       \"elapsed_time\": time.time()-start_at} "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "predict(\"I love the music\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "predict(\"I hate the rain\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "predict(\"i don't know what i'm doing\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "predict(\"awesome, I miss my flight\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "predict(\"pleasure, to meet you\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
